@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info"  packages="com.seila.vulturepix">
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <com.seila.vulturepix.LocalStackAppender
+                log-group="my-log-group"
+                log-stream="my-log-stream"
+                name="com.seila.vulturepix.LocalStackAppender" >
+            <JsonLayout complete="false" compact="false" eventEol="true"/>
+            <!-- Configurações adicionais do appender aqui -->
+        </com.seila.vulturepix.LocalStackAppender>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="com.seila.vulturepix.LocalStackAppender" />
+        </Root>
+    </Loggers>
+</Configuration>
